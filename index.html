@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>ECS</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- google fonts -->
+
+	<!-- Css link -->
+	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/owl.transitions.css">
+	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/lightbox.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+
+	<link rel="stylesheet" href="css/preloader.css">
+	<link rel="stylesheet" href="css/image.css">
+	<link rel="stylesheet" href="css/icon.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/responsive.css">
+	<link rel="stylesheet" href="css/flags/flags.css">
+
+</head>
+
+<body id="top">
+
+
+	<header id="navigation" class="navbar-fixed-top animated-header">
+		<div class="container">
+			<div class="navbar-header">
+				<!-- responsive nav button -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<!-- /responsive nav button -->
+
+				<!-- logo -->
+
+				<a class="navbar-brand" href="#">Extended Continental Shelf
+					<br/>
+					<p class="tile-sub-head">The world map as we know it is changing</p>
+				</a>
+
+				<!-- /logo -->
+			</div>
+
+			<!-- main nav -->
+			<nav class="collapse navbar-collapse navbar-right" role="navigation">
+				<ul id="nav" class="nav navbar-nav menu">
+					<li>
+						<a href="#top">Home</a>
+					</li>
+					<li>
+						<a href="#features">Submissions</a>
+					</li>
+
+					<!-- <li>
+						<a href="#team">BLOG</a>
+					</li> -->
+					<li>
+
+						<a href="#portfolio">About</a>
+					</li>
+					<li>
+						<a href="#pricing-table">Events</a>
+					</li>
+
+					<li>
+
+						<a href="ecs_map.html?map_id=NOT">Geovisualization</a>
+					</li>
+					<!-- <li>
+						<a href="#blog">Blog</a>
+					</li> -->
+					<!-- <li>
+						<a href="#testimonial">Testimonial</a>
+					</li> -->
+					<li>
+						<a href="#contact-form">Contact</a>
+					</li>
+				</ul>
+			</nav>
+			<!-- /main nav -->
+
+		</div>
+	</header>
+
+
+	<div class="wrapper">
+		<section id="banner">
+			<div class="container-fluid">
+					
+							
+				<div class="row">
+					<div class="col-md-12">
+						<div class="block">
+
+							<h1>The Continental Shelf Programme – examining the recommendations of the Commission on the Limits of the Continental Shelf</h1>
+
+						</div>
+					</div>
+				</div>
+
+				<!-- code for serch box -->
+
+				<div class="row-fluid">
+
+					<div class="block">
+						<div class="panel" style="background-color:#2F4650;text-align: left;border-radius: 7px">
+							<div class="panel-body">
+								<div class="col-lg-8 col-md-8 col-sm-8">
+									<h6>Submissions by State</h6>
+									<div class="input-group input-group-lg" style="width: 100%" id="bloodhound">
+										<input type="text" class="typeahead form-control" placeholder="Search for...">
+
+										<!-- <span class="input-group-btn">
+											<button class="btn btn-warning" type="button">Search</button>
+										</span>  -->
+									</div>
+									<p style="color:khaki;font-size: 12px">i.e Spain, Mexico or Norway</p>
+
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-4">
+									<h6>Explore the World’s Continental Shelf GIS</h6>
+									<button class="btn btn-block btn-success" type="button" id="open_costalGIS">Explore the world</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- code for serch text only -->
+				
+				<div class="row" style="padding-top:200px">
+						<div class="block">
+						<div class="panel" style="background-color: rgba(247, 241, 241, 0)">
+							<div class=" panel-body ">
+								<div class="col-lg-12 col-md-12 col-sm-12 ">
+									<div class="panel " style="background-color:rgb(84, 186, 211);border-radius: 7px ">
+										<div class="panel-body ">
+											<p class="lead" style="color: rgb(31, 69, 83);font-weight: bold; ">
+												The Continental Shelf Recommendations Project provides an accessible record of recommendations made by the Commission on the Limits of the Continental Shelf. It collates information on the Commissions approaches and precedents with respect to the characteristics of continental margins and the application of Article 76 of the United Nations Convention on the Law of the Sea.</p>
+										</div>
+									</div>
+								</div>
+							
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+
+
+			<!-- <div class="scrolldown">
+				<a id="scroll" href="#features" class="scroll"></a>
+			</div> -->
+
+		</section>
+		<section id="features">
+
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="block">
+							<div class="panel panel-info">
+								<h2 class="panel-heading ">List of State Submissions</h2>
+								<div class="panel-body" id="div_contry" class="info"></div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- <section id="counter">
+			<div class="container">
+				<div class="row">
+					<div class="title">
+						<h2>FUN FACTS</h2>
+						<p>Dantes remained confused and silent by this explanation of the
+							<br> thoughts which had unconsciously</p>
+					</div>
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<div class="block wow fadeInRight" data-wow-delay=".3s">
+							<i class="ion-code"></i>
+							<p class="count-text">
+								<span class="counter-digit">136800 </span> k
+							</p>
+							<p>Lines Coded</p>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<div class="block wow fadeInRight" data-wow-delay=".5s">
+							<i class="ion-compass"></i>
+							<p class="count-text">
+								<span class="counter-digit">7800 </span> +
+							</p>
+							<p>Lines Coded</p>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<div class="block wow fadeInRight" data-wow-delay=".7s">
+							<i class="ion-compose"></i>
+							<p class="count-text">
+								<span class="counter-digit">399</span>
+							</p>
+							<p>Lines Coded</p>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<div class="block wow fadeInRight" data-wow-delay=".9s">
+							<i class="ion-image"></i>
+							<p class="count-text">
+								<span class="counter-digit">9995</span>
+							</p>
+							<p>Lines Coded</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section> -->
+		<section id="portfolio">
+
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="panel with-nav-tabs panel-primary" style="height: 1000px; width: 100%;overflow-y: auto">
+							<div class="panel-heading" style="display:inline-block;height:50px;padding-top: 6px;width: 100%">
+								<h2>About this site</h2>
+								<span class="pull-right" style="font-weight: bold">
+									<ul class="nav nav-tabs" style="position: relative;	bottom: 30px;">
+										<li class="active">
+											<a href="#tab1primary" data-toggle="tab">About</a>
+										</li>
+										<li>
+											<a href="#tab2primary" data-toggle="tab">Introduction</a>
+										</li>
+										<li>
+											<a href="#tab3primary" data-toggle="tab">Current status </a>
+										</li>
+										<li>
+											<a href="#tab4primary" data-toggle="tab">The process</a>
+										</li>
+										<li>
+											<a href="#tab5primary" data-toggle="tab">Recommendations</a>
+										</li>
+									</ul>
+								</span>
+							</div>
+							<div class="panel-body">
+								<div class="tab-content">
+									<div class="tab-pane fade in active" id="tab1primary">
+										<div class="container-fluid">
+											<div class="row-fluid">
+												<div class="col-lg-2 col-md-2 col-sm-2"></div>
+												<div class="col-lg-8 col-md-8 col-sm-8">
+
+													<p class="text-info text-justify">
+														<big>
+															The
+															<b>Shelf Recommendations project</b> was lunched in 2018 to present information on the status of the extended
+															continental shelf submissions. Our goal is to provide a visualisation of the areas of extended continental
+															shelf and an examination of the recommendations made to States by the Commission on the Limits of the Continental
+															Shelf (the Commission).
+															<br/>
+															<br/> As coastal states are presenting their submissions to the Commission, it is useful to have an accessible
+															record of previous recommendations. Since 2008 the Commission has developed understandings, devised consistent
+															approaches and precedents with respect to the characteristics of continental margins and the application of
+															Article 76 of the Convention. This website provides an analysis of the Commission’s general view on matters
+															such as the submerged prolongation of the landmass of coastal States, the implications of seafloor highs and
+															particularly oceanic seafloor spreading ridges and sediment transport deposits. It is hoped this information
+															will assist States in making a successful submission to the Commission.
+															<br/>
+															<br/> The information and data provided has been collected from the published submission executive summaries, summaries
+															of recommendations and full recommendations (from States that have given due publicity to the outer limit
+															of their continental shelf in accordance with article 84 (2) of the Convention) available on the DOALOS website.
+															<br/>
+															<br/> Data on the submissions and recommendations have been provided by the United States Geological Survey, the
+															University of Sydney, the Norwegian Petroleum Directorate and GRID-Arendal. The project is majority funded
+															by the Norwegian Ministry of Foreign Affairs. Mr Phil Symond’s participation is supported by the Australian
+															Department of Foreign Affair and Geoscience Australia.
+															<br/>
+															<br/>
+															<br/>
+															<br/>
+														</big>
+													</p>
+													<p class="text-info">
+														<big>
+															<strong>Acknowledgements</strong>
+															<br/>
+															<em>Bonnie Clarke US Geological Survey
+																<br/> Debbie Hutchinson US Geological Survey
+																<br/> Harold Brekke Norwegian Petroleum Directorate; CLCS member 1997 to 2012
+																<br/> Phil Symonds University of Sydney; CLCM member 1997 to 2012 </em>
+															<br/>
+															<code>insert logo </code>
+														</big>
+													</p>
+												</div>
+												<div class="col-lg-2 col-md-2 col-sm-2"></div>
+											</div>
+										</div>
+
+									</div>
+									<div class="tab-pane fade" id="tab2primary">
+
+										<div class="container-fluid">
+											<div class="row-fluid">
+												<div class="col-lg-2 col-md-2 col-sm-2"></div>
+												<div class="col-lg-8 col-md-8 col-sm-8 ">
+													<h3>
+														<p class="text-info text-justify">
+
+															Since 2001, many coastal States have been engaged in peacefully establishing the limits of their maritime jurisdiction. This
+															represents an historical milestone towards the definition of maritime sovereignty and presents enormous economic
+															opportunities for coastal States, but also brings new environmental challenges and responsibilities.
+
+														</p>
+													</h3>
+													<br>
+													<h4 class="text-info">
+														<strong>The Extended Continental Shelf</strong>
+													</h4>
+
+													<p class="text-info text-justify">
+														<big>
+															The continental shelf extends to the outer edge of the continental margin - or out to a distance of 200 M if the outer edge
+															of the continental margin does not extend that far. If a coastal State intends to establish its continental
+															shelf beyond 200 M (known as the extended continental shelf, or ECS), it must submit information to the Commission
+															on the Limits of the Continental Shelf as defined in
+															<a class="text-success" href="http://www.un.org/depts/los/convention_agreements/texts/unclos/part6.htm" target="_blank">
+																<u>Article 76 of UNCLOS</u>
+															</a>. Article 76 defines the legal continental shelf and the process of delineating its outer limits. Setting
+															these limits ensures the right of coastal States to explore and exploit the resources of the seabed and subsoil
+															(but excludes the water column and the airspace see figure 1.).</big>
+													</p>
+													<br/>
+													<div class="thumbnail center-block" style="width: 60%;">
+														<a href="img/maritime.png">
+															<img src="img/maritime.png" alt="Lights" style="width:100%">
+															<div class="caption">
+																<p>
+																	<b>Fig.1-</b>to be added</p>
+															</div>
+														</a>
+													</div>
+													<br/>
+													<div class="thumbnail center-block" style="width: 100%;">
+														<a href="img/maritime_zone.png">
+															<img src="img/maritime_zone.png" alt="Lights" style="width:100%">
+															<div class="caption">
+																<p>
+																	<b>Fig.2-</b>The maritime boundaries that define marine sovereignty - in some cases the outer most limit can
+																	extend beyond the exclusive economic zone into an area termed the extended continental shelf.</p>
+															</div>
+														</a>
+													</div>
+													<br>
+													<h4 class="text-info">
+														<strong>The Commission on the Limits of the Continental Shelf</strong>
+													</h4>
+													<p class="text-info text-justify">
+														<big>
+															The
+															<a class="text-success" href="http://www.un.org/depts/los/clcs_new/commission_members.htm" target="_blank">
+																<u>21 members of the Commission</u>
+															</a> are elected by the States Parties to UNCLOS, with at least 3 members coming from each of the geographical
+															regions of the United Nations. Members are elected for 5 years. The last election took place in June 2017
+															when 20 members were elected, of these 9 were newly elected and 11 were returning members. The Commission
+															is currently in its 5th term (1997-2002, 2002-2007, 2007-2012, 2012-2017, 2017-2022)
+														</big>
+													</p>
+													<br/>
+													<div class="thumbnail center-block" style="width: 100%;">
+														<a href="img/commission.png">
+															<img src="img/commission.png" alt="Lights" style="width:100%">
+															<div class="caption">
+																<p>
+																	<b>Fig.3-</b>Tto be added</p>
+															</div>
+														</a>
+													</div>
+													<br/>
+													<p class="text-info text-justify">
+														<big>
+															The Commission is responsible for making recommendations on the outer limits of the continental shelf to States in accordance
+															with the Convention, based on the data and information presented in the submission. The Commission, operational
+															since 1997, is guided by the Rules of Procedure (CLCS 2008) and the Scientific and Technical Guidelines of
+															the Commission on the Limits of the Continental Shelf (CLCS 1999), referred to as the Guidelines. The recommendations
+															given by the Commission, may or may not agree with the limits of the continental shelf submitted by the State.
+															In the case of divergence between a State regarding the recommendations made by the Commission, the State
+															may – within a reasonable time – make a revised or new submission (for example the Russian submission was
+															first lodged in 2001 with partial revised submissions submitted in 2013 and 2015).
+														</big>
+													</p>
+													<br>
+													<h4 class="text-info">
+														<strong>The Scientific and Technical Guidelines</strong>
+													</h4>
+													<p class="text-info text-justify">
+														<big>
+															The
+															<a class="text-success" href="https://documents-dds-ny.un.org/doc/UNDOC/GEN/N99/171/08/IMG/N9917108.pdf?OpenElement" target="_blank">
+																<u>Scientific and Technical Guidelines</u>
+															</a> (1999; STG) where prepared by Commission in order to clarify its interpretation of the scientific, technical
+															and legal terms contained in UNCLOS. The Commission felt this was necessary as the Convention makes use of
+															scientific terms in a legal context which at times departs significantly from accepted scientific definition
+															(e.g. the continental shelf). In addition, terms in the Convention are at times open to multiple interpretations
+															and the aim of the guidelines is to ensure a uniform understanding.
+															<br/>
+															<br/> The guidelines also aim to provide guidance on the admissible scientific and technical evidence examined
+															by the Commission and outline possible methodologies to develop the evidence (acknowledging that there may
+															be other suitable methodologies). The Commission emphasizes methodologies that are optimise existing information
+															and data and are thus cost effective.
+
+														</big>
+													</p>
+													<br/>
+													<h4 class="text-info">
+														<strong>Abbreviations</strong>
+													</h4>
+													<table class="table">
+														<tbody>
+															<tr>
+																<td>CLCS</td>
+																<td>Commission on the Limits of the Continental Shelf</td>
+															</tr>
+															<tr>
+																<td>UNCLOS</td>
+																<td>United Nations Commission on the Limits of the Continental Shelf</td>
+															</tr>
+															<tr>
+																<td>ECS</td>
+																<td>Extended Continental Shelf</td>
+															</tr>
+															<tr>
+																<td>EEZ</td>
+																<td>Extended Economic Zone</td>
+															</tr>
+															<tr>
+																<td>BOS</td>
+																<td>Base of the continental slope</td>
+															</tr>
+															<tr>
+																<td>FOS</td>
+																<td>Foot of the continental slope</td>
+															</tr>
+															<tr>
+																<td>Critical FOS point</td>
+																<td>Foot of the continental slope points that generate fixed formula points delineating the line that establishes
+																	the outer limits of the continental shelf.</td>
+															</tr>
+															<tr>
+																<td>Depth constraint</td>
+																<td>The constraint line constructed at the 100M from the 2500 metre isobaths in accordance with article 76, paragraphs
+																	5 and 6 of the convention.</td>
+															</tr>
+															<tr>
+																<td>Distance constraint</td>
+																<td>The constraint constructed at 350M from the baselines from which the breadth of the territorial sea is measured
+																	in accordance with article 76, paragraphs 5 and 6 of the convention.</td>
+															</tr>
+															<tr>
+																<td>M</td>
+																<td>Nautical mile</td>
+															</tr>
+															<tr>
+																<td>200 M Limit</td>
+																<td>The line at 200 M from the baselines from which the breadth of the territorial sea is measured</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+												<div class="col-lg-2 col-md-2 col-sm-2"></div>
+											</div>
+										</div>
+
+									</div>
+									<div class="tab-pane fade" id="tab3primary">
+										<div class="container-fluid">
+											<div class="row-fluid">
+												<div class="col-lg-2 col-md-2 col-sm-2"></div>
+												<div class="col-lg-8 col-md-8 col-sm-8 ">
+													<h3>
+														<p class="text-info text-justify">
+
+															<strong>Current status of extended continental shelf delineation</strong>
+
+														</p>
+													</h3>
+													<br/>
+
+													<h4 class="text-info">
+														<strong>Submissions</strong>
+													</h4>
+													<p class="text-info text-justify">
+														<big>
+															Many states, including small island developing states, have succeeded in lodging a
+															<a class="text-success" href="http://www.un.org/depts/los/clcs_new/commission_submissions.htm" target="_blank">
+																<u>submission for extended continental shelf</u>
+															</a>. The first submission was made by the Russian Federation in 2001, however most submissions were received
+															shortly before 13 May 2009, the expiration of the ten-year time period for many states lodging a submission.
+															<br/> To date, the Commission has received 77 submissions.
+															<br/>
+
+															<code>Insert Graphic </code>
+
+
+														</big>
+													</p>
+													<br/>
+
+													<h4 class="text-info">
+														<strong>Preliminary Information documents</strong>
+													</h4>
+													<p class="text-info text-justify">
+														<big>
+															Due to the challenges that some states faced in the preparation of a submission (especially those who were affected by the
+															May 2009 deadline), the States Parties to the Convention decided to allow States to submit preliminary information
+															documents in lieu of a full submission. These
+															<a class="text-success" href="http://www.un.org/depts/los/clcs_new/commission_preliminary.htm" target="_blank">
+																<u>preliminary information documents</u>
+															</a> outline a state’s potential ECS. The States Parties also decided that the preliminary information would not
+															be considered by the Commission and would be without prejudice to the final submission. Forty-seven preliminary
+															information documents have been deposited with the Secretary-General of the United Nations. Currently 21 of
+															these have been transformed into submissions. Some of the remaining 26 PIDs may still be incomplete due to
+															low national priority, lack of funding, lack of technical capacity and insufficient data to complete the submission.
+															<br/>
+
+															<code>Insert Graphic </code>
+
+
+														</big>
+													</p>
+													<br/>
+
+													<h4 class="text-info">
+														<strong>Area of Extended continental shelf</strong>
+													</h4>
+													<p class="text-info text-justify">
+														<big>
+															It is not possible at present to calculate the full area of the ECS. However, the area generated by States that have adopted
+															the recommendations of the Commission equals xxx km 2.
+															<br/>
+
+															<code>Insert Graphic </code>
+
+
+														</big>
+													</p>
+													<br/>
+
+													<h4 class="text-info">
+														<strong>Meetings of the Commision</strong>
+													</h4>
+													<br/>
+
+													<code>something to be added </code>
+
+												</div>
+												<div class="col-lg-2 col-md-2 col-sm-2"></div>
+											</div>
+										</div>
+									</div>
+									<div class="tab-pane fade" id="tab4primary">
+										<div class="container-fluid">
+											<div class="row-fluid">
+												<div class="col-lg-2 col-md-2 col-sm-2"></div>
+												<div class="col-lg-8 col-md-8 col-sm-8 ">
+													<h3>
+														<p class="text-info text-justify">
+
+															<strong>The Process</strong>
+
+														</p>
+													</h3>
+													<br/>
+
+													<h4 class="text-info">
+														<strong>The Sub-commission</strong>
+													</h4>
+													<p class="text-info text-justify">
+														<big>
+															As outlined in the Rules of Procedure, the Commission establishes a sub-commission for the consideration of each submission.
+															Sub-commissions meet privately but throughout the process are able to openly communicate with the state making
+															the submission. They may request additional data and information. In some instances, the complexity of requests
+															can amount to the recommendation of a revised submission. It is not clear how the sub-commission determines
+															when to stop requesting more information and decide that a revised submission is required, but this is likely
+															determined on a situational basis. A revised submission provides public documentation of changes made and
+															an indication of how the sub-commission is assessing specific situations. However, in some situations, not
+															enough information is provided to assess why the sub-commission chose to deny or revise ECS claims.
+															<br/> The Commission and the sub-commissions endeavour to reach a consensus in relation to the recommendations.
+															However, if a consensus cannot be achieved, decisions can be made with the agreement of a two-thirds majority
+															of the members present and voting. This means that all parts of all recommendations are not necessarily agreed
+															to by all members of the Commission, but are, at a minimum, supported by a two-thirds majority of members
+															in attendance
+
+
+
+														</big>
+													</p>
+													<br/>
+
+													<h4 class="text-info">
+														<strong>Workload of the Commission</strong>
+													</h4>
+													<p class="text-info text-justify">
+														<big>
+															Owing to the increase in workload of the Commission some changes in operation have been made. The annual meeting time in
+															New York has increased, the number of simultaneous sub-commissions operating has increased (from 3 to 4) and
+															at times the number of members (generally 7) in a sub-commission has been reduced to allow additional sub-commissions
+															to operate. However, these measures have not significantly increased the rate of completed recommendations,
+															as the processing time for examination of submissions has on average increased. This may in part be due to
+															the complexity of submissions, but also the amount of time it takes new members of the Commission to become
+															familiar with the Guidelines, and approaches and precedents that have been set in previous recommendations.
+														</big>
+													</p>
+													<br/>
+													<div class="thumbnail center-block" style="width: 100%;">
+														<a href="img/clcs_timeline.png">
+															<img src="img/clcs_timeline.png" alt="Lights" style="width:100%">
+															<div class="caption">
+																<p>
+																	<b>Fig.?-</b>to be added</p>
+															</div>
+														</a>
+													</div>
+													<br/>
+
+
+													<p class="text-info text-justify">
+														<big>
+															The ability of the CLCS to cope with the predicted workload is a real issue and is of concern, especially for developing
+															coastal States and SIDS. When States made submissions, they did not necessarily anticipate that it would take
+															many years to receive recommendations. These countries potentially face institutional memory loss. It may
+															be necessary in the future to change the workings of the Commission in order to issue recommendations more
+															quickly so as not to disadvantage States.
+
+														</big>
+													</p>
+
+
+												</div>
+												<div class="col-lg-2 col-md-2 col-sm-2"></div>
+											</div>
+										</div>
+
+									</div>
+									<div class="tab-pane fade" id="tab5primary" >
+										<div class="container-fluid">
+											<div class="row-fluid" >
+												<div class="col-lg-4 col-md-4 col-sm-4">
+													<table id="recom_table"  class="table  table-bordered table-hover table-striped table-condensed text-center"   cellspacing="0" width="100%">
+														<tbody>
+														<thead class="bg-success">
+															<tr>																
+																<th>ECS ID</th>
+																<th>Contries</th>
+																<th>Version</th>
+																<th>Download</th>																																								
+															</tr>
+														</thead>
+													</tbody>
+													</table>
+												</div>
+												<div class="col-lg-8 col-md-8 col-sm-8" style="border: 2px solid rgb(6, 38, 182);padding:2px;">
+													<object id="obj_pdf" data="data/pdfs/AS_300_1.pdf#page=1" type="application/pdf" width="100%" height="1020px"  > 
+														<iframe id="ifrm_pdf" src="data/pdfs/AS_300_1.pdf#page=1" width="100%" height="1020px" style="border: none;">
+														This browser does not support PDFs. Please download the PDF to view it
+														</iframe>
+													</object>
+											
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<!-- <div class="panel-footer" style="background-color:#D8ECF7;height: 50px;"></div>		 -->
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+		</section>
+		<!-- <section id="play-video">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="block">
+						<h2 class="wow fadeInUp" data-wow-delay=".3s">GET THE TEMPLATE</h2>
+						<p class="wow fadeInUp" data-wow-delay=".5s">Dantes remained confused and silent by this explanation of the </p>
+						<a href="https://vimeo.com/channels/staffpicks/145743834" class="html5lightbox" data-width=800 data-height=400>
+							<div class="button ion-ios-play-outline wow zoomIn" data-wow-delay=".3s"></div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> -->
+		<!-- <section id="team">
+		<div class="container">
+			<div class="row">
+				<div class="title">
+					<h2>CREATIVE TEAM</h2>
+					<p>Dantes remained confused and silent by this explanation of the
+						<br> thoughts which had unconsciously</p>
+				</div>
+				<div class="col-md-4 col-sm-4 col-xs-6">
+					<div class="block wow fadeInLeft" data-wow-delay=".3s">
+						<img src="img/team-img1.jpg" alt="">
+						<div class="team-overlay">
+							<h3>ROBERT SMITH
+								<span>Product Designer</span>
+							</h3>
+							<span class="icon">
+								<i class="ion-quote"></i>
+							</span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+								aliqua. Ut enim ad minim veniam, quis</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4  col-sm-4 col-xs-6">
+					<div class="block wow fadeInLeft" data-wow-delay=".6s">
+						<img src="img/team-img2.jpg" alt="">
+						<div class="team-overlay">
+							<h3>ROBERT SMITH
+								<span>Product Designer</span>
+							</h3>
+							<span class="icon">
+								<i class="ion-quote"></i>
+							</span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+								aliqua. Ut enim ad minim veniam, quis</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4  col-sm-4 col-xs-6">
+					<div class="block wow fadeInLeft" data-wow-delay=".9s">
+						<img src="img/team-img3.jpg" alt="">
+						<div class="team-overlay">
+							<h3>ROBERT SMITH
+								<span>Product Designer</span>
+							</h3>
+							<span class="icon">
+								<i class="ion-quote"></i>
+							</span>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+								aliqua. Ut enim ad minim veniam, quis</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> -->
+		<section id="pricing-table">
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="panel panel-info">
+							<h2 class="panel-heading ">Upcoming events</h2>
+							<div class="panel-body" style="height:500px;overflow-y: scroll;">
+
+
+								<div class="row-fluid" style="display:inline-block;">
+									<div class="col-md-2 col-sm-2 col-xs-2">
+										<h3>
+											<span class="label label-info">01</span>
+										</h3>
+										<h2 style="padding-top: 1px;">OCT</h2>
+
+									</div>
+
+									<div class="col-md-10 col-sm-10 col-xs-10">
+										<h2>
+											<span class="text-uppercase label label-warning"> Event #1</span>
+										</h2>
+										<p>&nbsp;</p>
+										<ul class="list-inline-item">
+
+											<li class="fa fa-calendar-o" aria-hidden="true"> Monday, 2017</li>
+
+											<li class="list-inline-item">
+												<li class="fa fa-location-arrow" aria-hidden="true"></li> Arendal, Norway</li>
+										</ul>
+										<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+											standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+											a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+											remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+											Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+											of Lorem Ipsum.</p>
+										<hr class="hr-primary" />
+									</div>
+								</div>
+
+
+
+								<div class="row-fluid" style="display:inline-block;">
+									<div class="col-md-2 col-sm-2 col-xs-2">
+										<h3>
+											<span class="label label-info">01</span>
+										</h3>
+										<h2 style="padding-top: 1px;">OCT</h2>
+
+									</div>
+
+									<div class="col-md-10 col-sm-10 col-xs-10">
+										<h2>
+											<span class="text-uppercase label label-warning"> Event #1</span>
+										</h2>
+										<p>&nbsp;</p>
+										<ul class="list-inline" <li class="list-inline-item">
+
+											<li class="fa fa-calendar-o" aria-hidden="true"> Monday, 2017</li>
+
+											<li class="list-inline-item">
+												<li class="fa fa-location-arrow" aria-hidden="true"></li> Arendal, Norway</li>
+										</ul>
+										<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+											standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+											a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+											remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+											Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+											of Lorem Ipsum.</p>
+										<hr class="hr-primary" />
+									</div>
+								</div>
+
+								<div class="row-fluid" style="display:inline-block;">
+									<div class="col-md-2 col-sm-2 col-xs-2">
+										<h3>
+											<span class="label label-info">01</span>
+										</h3>
+										<h2 style="padding-top: 1px;">OCT</h2>
+
+									</div>
+
+									<div class="col-md-10 col-sm-10 col-xs-10">
+										<h2>
+											<span class="text-uppercase label label-warning"> Event #1</span>
+										</h2>
+										<p>&nbsp;</p>
+										<ul class="list-inline" <li class="list-inline-item">
+
+											<li class="fa fa-calendar-o" aria-hidden="true"> Monday, 2017</li>
+
+											<li class="list-inline-item">
+												<li class="fa fa-location-arrow" aria-hidden="true"></li> Arendal, Norway</li>
+										</ul>
+										<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+											standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+											a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+											remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+											Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+											of Lorem Ipsum.</p>
+										<hr class="hr-primary" />
+									</div>
+								</div>
+
+								<div class="row-fluid" style="display:inline-block;">
+									<div class="col-md-2 col-sm-2 col-xs-2">
+										<h3>
+											<span class="label label-info">01</span>
+										</h3>
+										<h2 style="padding-top: 1px;">OCT</h2>
+
+									</div>
+
+									<div class="col-md-10 col-sm-10 col-xs-10">
+										<h2>
+											<span class="text-uppercase label label-warning"> Event #1</span>
+										</h2>
+										<p>&nbsp;</p>
+										<ul class="list-inline" <li class="list-inline-item">
+
+											<li class="fa fa-calendar-o" aria-hidden="true"> Monday, 2017</li>
+
+											<li class="list-inline-item">
+												<li class="fa fa-location-arrow" aria-hidden="true"></li> Arendal, Norway</li>
+										</ul>
+										<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+											standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+											a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+											remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+											Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+											of Lorem Ipsum.</p>
+										<hr class="hr-primary" />
+									</div>
+								</div>
+
+							</div>
+							<div class="panel-footer" style="background-color:#D8ECF7;height: 50px;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<section id="contact-form">
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="title">
+							<h2>CONTACT US</h2>
+							<!-- <p>Dantes remained confused and silent by this explanation of the
+						<br> thoughts which had unconsciously</p> -->
+						</div>
+						<!-- 	<div class="col-md-6 col">
+					
+					<div class="map">
+						<div id="googleMap"></div>
+					</div>
+					
+
+				</div> -->
+
+						<form>
+							<input type="text" class="form-control" placeholder="Name">
+							<input type="text" class="form-control" placeholder="Email">
+							<textarea class="form-control" rows="3" placeholder="Message"></textarea>
+							<button class="btn btn-default" type="submit">SEND</button>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="block">
+							<a href="#">
+								<img src="img/logo11.png" alt="" style="width: 50px;height: 40px;">
+							</a>
+							<p>All rights reserved © 2018</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<!-- load Js -->
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/typeheadmin.js"></script>
+
+	<!-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&amp;sensor=false"></script> -->
+	<script src="js/waypoints.min.js"></script>
+	<script src="js/lightbox.js"></script>
+	<script src="js/jquery.counterup.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/html5lightbox.js"></script>
+	<script src="js/jquery.mixitup.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/jquery.scrollUp.js"></script>
+	<script src="js/jquery.sticky.js"></script>
+	<script src="js/jquery.nav.js"></script>
+	<script src="js/main.js"></script>
+</body>
+
+</html>
