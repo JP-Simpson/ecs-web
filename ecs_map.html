@@ -40,372 +40,55 @@
 	<link rel="stylesheet" href="css/responsive.css">
 	<link rel="stylesheet" href="css/mapApp.css">
 
-
 </head>
 
 <body>
 
-	<div id="navigation" class="navbar-fixed-top animated-header">
-			<div  class="col-md-3 pull-right">          
-              
-					<form class="btn btn-block form-inline">
-						<label style="color:#4E4E4E;padding-right:5px;font-style: normal">Get Layer Info</label>
-						  <select class="form-control" id="lgList" style="max-width: 200px;"> 
-							  <option hidden selected>--Click info--</option>                 
-						  </select>
-					</form>
-				 
-				  </div> 
-	
-	<div  class="col-md-9 pull-left"> 
-		<div class="container">	         
-              					
+	<nav id="navigation" class="navbar navbar-fixed-top animated-header">
+		<div class="container">
 			<div class="navbar-header">
-				<!-- responsive nav button -->
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<!-- collapsible navbar -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<!-- /responsive nav button -->
-
+				<!-- /collapsible navbar -->
 				<!-- logo -->
-
-				<a class="navbar-brand" href="/ecs/web/">Extended Continental Shelf
+				<a class="navbar-brand" href="#">Extended Continental Shelf
 					<br/>
-					<p class="tile-sub-head">The world map as we know it is about to change</p>
+					<p class="tile-sub-head">The world map as we know it is changing</p>
 				</a>
-
 				<!-- /logo -->
-			
 			</div>
-			
-
 			<!-- main nav -->
-			<nav class="collapse navbar-collapse navbar-left" role="navigation">
+			<div class="collapse navbar-collapse navbar-right" role="navigation" id="navbarCollapse">
 				<ul id="nav" class="nav navbar-nav menu">
-					<li>
-						<a href="/ecs/web/">Home</a>
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">Home</a>
 					</li>
-					<!-- <li>
-						<a href="/ecs/web/#features">Submissions</a>
+					<li class="nav-item">
+						<a class="nav-link" href="about.html">About</a>
 					</li>
-
-				
-					<li>
-
-						<a href="/ecs/web/#portfolio">About</a>
+					<li class="nav-item">
+						<a class="nav-link" href="submissions.html">Submissions</a>
 					</li>
-					<li>
-						<a href="/ecs/web/#pricing-table">Events</a>
-					</li> -->
-
-					<!-- <li>
-						<a href="ecs_map.html?map_id=NOT">Geovisualization</a>
-					</li> -->
-					<!-- <li>
-						<a href="#blog">Blog</a>
-					</li> -->
-					<!-- <li>
-						<a href="#testimonial">Testimonial</a>
-					</li> -->
-					<li  id="btnInfo-hide-btn">
-						<a href="#">Info Table</a>
+					<li class="nav-item active">
+						<a class="nav-link" href="#top">Global Boundaries Map</a>
 					</li>
-					<!-- <li>
-						<a href="/ecs/web/#contact-form" id="list-btn">Contact</a>
-					</li>			 -->
 				</ul>
-				
-			</nav>
-			<!-- /main nav -->	 
-			 
+			</div>
 		</div>
-	</div>
-		
-	</div>
-	
+		<!-- /main nav -->
+	</nav>	
 	
 
    
 	<div id="container">
-		<div id="sidebar">
-		  <div class="sidebar-wrapper">
-			<div class="panel panel-primary" style="border: 0px;">
-			  <div class="panel-heading" style="padding: 8px;" >
-							<div class="input-group input-group-sm">
-									<div class="panel-title"><span style="font-size: 20px; font-weight:bold">State ECS Details:  </span ><span id="con_name"  style="font-size: 16px;font-weight: bold">NA</span>  <span class="label label-info" id="total_feature">0</span></div>
-									<span class="input-group-btn">
-											<button type="button" class="btn btn-success pull-right" id="sidebar-hide-btn" ><i class="fa fa-chevron-left"></i></button>
-									</span>
-								</div>
-			</div>
-			  <div class="panel-body" style="padding-bottom: 100px">
 				
-					<div class="container-fluid">
-							<div class="row-fluid>
-								<div class="col-md-12" style="overflow: auto;height:800px;">
-									<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" >
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingOne">
-												<h4 class="panel-title">
-													<a role="button"  data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-														Submissions points <span class="badge badge-primary" id="Points_Submissions_a">0</span>
-													</a>
-												</h4>
-											</div>
-											<div id="collapseOne"  show.bs.collaps="test()"  class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-												<div class="panel-body">
-
-													<table id="Points_Submissions_tab"  class="table  table-bordered table-condensed table-striped"   cellspacing="0" width="100%">
-														<thead>
-															<tr>																
-																<th>ECS Id</th>
-																<th>Status</th>
-																<th>Date</th>
-																<th>Formula</th>
-																<th>Country</th>
-																<th>Depth Etopo</th>
-																<th>FOS</th>
-																<th>Page Number</th>																																												
-															</tr>
-														</thead>
-													</table>
-													
-												</div>
-											</div>
-										</div>
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingTwo">
-												<h4 class="panel-title">
-													<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-													Submissions lines <span class="badge badge-primary" id="Submissions_Line_a">0</span>
-													</a>
-												</h4>
-											</div>
-											<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-												<div class="panel-body">
-
-														<table id="Submissions_Line_tab"  class="table  table-bordered table-condensed table-striped"   cellspacing="0" width="100%">
-																<thead>
-																	<tr>																
-																		<th>ECS Id</th>
-																		<th>Date</th>
-																		<th>Pdf</th>																																												
-																	</tr>
-																</thead>
-															</table>
-												
-												</div>
-											</div>
-										</div>
-		
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingThree">
-												<h4 class="panel-title">
-													<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-													Points recommended by the commission  <span class="badge badge-primary" id="Reccomendation_Feature_a">0</span>
-													</a>
-												</h4>
-											</div>
-											<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-												<div class="panel-body">
-																			
-											<!-- <div id="pdfpoits" style="display: -webkit-inline-box;"><p class="text-info"><strong>Recommendation Documents: </strong></p></div> -->
-												
-													<table id="Reccomendation_Feature_tab"  class="table  table-bordered table-condensed table-striped"   cellspacing="0" width="100%">
-																<thead>
-																	<tr>																
-																		<th>ECS Id</th>
-																		<th>Feature Name</th>
-																		<th>Type</th>
-																		<th>FOS Accept</th>	
-																		<th>Page number</th>
-																		<th>Comments</th>																																											
-																	</tr>
-																</thead>
-															</table>
-												</div>
-											</div>
-										</div>
-		
-		
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingThree1">
-												<h4 class="panel-title">
-													<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree1" aria-expanded="false" aria-controls="collapseThree1">
-													Line recommended by the Commission<span class="badge badge-primary" id="Recommendations_Line_a">0</span>
-													</a>
-												</h4>
-											</div>
-											<div id="collapseThree1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree1">
-												<div class="panel-body">
-												
-													<!-- <div id="pdfLits" style="display: -webkit-inline-box;"><p class="text-info"><strong>Recommendation Documents: </strong></p></div> -->
-													
-														<table id="Recommendations_Line_tab"  class="table  table-bordered table-condensed table-striped"   cellspacing="0" width="100%">
-																<thead>
-																	<tr>																
-																			<th>ECS ID</th>
-																			<th>Date</th>									
-																			<th>Weblink</th>															
-																	</tr>
-																</thead>
-															</table>
-												
-												</div>
-											</div>
-										</div>
-		
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingThree2">
-												<h4 class="panel-title">
-													<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree2" aria-expanded="false" aria-controls="collapseThree2">
-													Submission Status<span class="badge badge-primary" id="Subcomissions_Statuse_a">0</span>
-													</a>
-												</h4>
-											</div>
-											<div id="collapseThree2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree2">
-												<div class="panel-body">
-												
-													<div id="pdfpoits" style="display: -webkit-inline-box;"><p class="text-info"><strong>Recommendation Documents:<span style="padding-left:5px" />  </strong></p></div>
-													<hr/>
-														<table id="Subcomissions_Statuse_tab"  class="table  table-bordered table-condensed table-striped"   cellspacing="0" width="100%">
-																<thead>
-																	<tr>	
-																	<th>ECS Id</th>
-																	<th>Date</th>	
-																	<th>Link</th>	
-																	<th>Area Sq Km</th>	
-																	<th>C</th>	
-																	<th>VC</th>	
-																	<th>M</th>	
-																	<th>Status</th>																											
-																	</tr>
-																</thead>
-															</table>
-												
-												
-												</div>
-											</div>
-										</div>
-		
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingThree3">
-												<h4 class="panel-title">
-													<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
-													Revised Line<span class="badge badge-primary" id="Revisions_Line_a">0</span>
-													</a>
-												</h4>
-											</div>
-											<div id="collapseThree3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree3">
-												<div class="panel-body">
-														<table id="Revisions_Line_tab"  class="table  table-bordered table-condensed table-striped"   cellspacing="0" width="100%">
-																<thead>
-																	<tr>	
-																	<th>ECS Id</th>
-																	<th>Date</th>	
-																	<th>Revised Pdf</th>																										
-																	</tr>
-																</thead>
-															</table>
-												
-												</div>
-											</div>
-										</div>
-										
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingThree4">
-												<h4 class="panel-title">
-													<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree4" aria-expanded="false" aria-controls="collapseThree4">
-													Part of the submission not under consideration<span class="badge badge-primary" id="Not_Under_Consideration_a">0</span>
-													</a>
-												</h4>
-											</div>
-											<div id="collapseThree4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree4">
-												<div class="panel-body">
-														
-													<table id="Not_Under_Consideration_tab"  class="table  table-bordered table-condensed table-striped"   cellspacing="0" width="100%">
-																<thead>
-																	<tr>				
-																    <th>ECS Id</th>
-																	<th>Reason</th>	
-																	<th>Disputing States</th>																										
-																	</tr>
-																</thead>
-															</table>
-												</div>
-											</div>
-										</div>
-		
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingThree5">
-												<h4 class="panel-title">
-													<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree5" aria-expanded="false" aria-controls="collapseThree5">
-														Foot of Slope <span class="badge badge-primary" id="Foot_of_Slope_a">0</span>
-													</a>
-												</h4>
-											</div>
-											<div id="collapseThree5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree5">
-												<div class="panel-body">
-														<table id="Foot_of_Slope_tab"  class="table  table-bordered table-condensed table-striped"   cellspacing="0" width="100%">
-																<thead>
-																	<tr>				
-																	<th>ECS Id</th>																	
-																	<th>Status</th>								
-																	<th>Source</th>
-																	<th>depth</th>
-																	<th>Page number</th>
-																	<th>FOS Id</th>
-																	<th>Supp Crit</th>																														
-																	</tr>
-																</thead>
-															</table>
-												</div>
-											</div>
-										</div>
-
-										<div class="panel panel-default">
-											<div class="panel-heading" role="tab" id="headingThree6">
-												<h4 class="panel-title">
-													<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree6" aria-expanded="false" aria-controls="collapseThree6">
-														Geomorphic Feature <span class="badge badge-primary" id="Geomorphic_a">0</span>
-													</a>
-												</h4>
-											</div>
-											<div id="collapseThree6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree6">
-												<div class="panel-body">
-														<table id="Geomorphic_tab"  class="table  table-bordered table-condensed table-striped"   cellspacing="0" width="100%">
-																<thead>
-																	<tr>				
-																	<th>ECS Id</th>																	
-																	<th>Feature Name</th>								
-																	<th>Type</th>
-																	<th>FOS Status</th>
-																	<th>Page number</th>
-																	<th>Comments</th>																																		
-																	</tr>
-																</thead>
-															</table>
-												</div>
-											</div>
-										</div>
-
-		
-									</div>
-								</div>
-							</div>
-
-
-				</div>
-			  </div>
-			  
-			</div>
-		  </div>
-		
 		<div id="map"></div>
-	  </div>
+	</div>
 
 	 
 
@@ -425,10 +108,12 @@
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
 
-	<!-- <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
-	<script src="./js/leaflet.ajax.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/esri-leaflet/1.0.5/esri-leaflet.js"></script>
+	<!-- Load Leaflet from CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@3.0.12/dist/esri-leaflet.js"></script>
+    <script src="https://unpkg.com/esri-leaflet-vector@4.2.3/dist/esri-leaflet-vector.js"></script>
 
 
 	<script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
@@ -450,8 +135,8 @@
 	<script src="js/jquery.scrollUp.js"></script>
 	<script src="js/jquery.sticky.js"></script>
 	<script src="js/jquery.nav.js"></script>
-	 <script src="./js/mapApp.js"></script>
-	 <script src="./js/app_getinfo.js"></script> 
+	<script src="./js/mapApp.js"></script>
+	<script src="./js/app_getinfo.js"></script> 
 	
 </body>
 
