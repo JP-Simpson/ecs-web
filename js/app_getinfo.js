@@ -1,3 +1,4 @@
+/*
 //map the wms id with layer get info id
 
 
@@ -322,7 +323,7 @@ function getFeatureInfo(e) {
         }
 
       });
-    }
+    }*/
 
    
 
@@ -357,7 +358,7 @@ function getFeatureInfo(e) {
   
       }
   */
-
+/*
   }
   else {
     $("#loading").hide();
@@ -563,4 +564,4 @@ public: function crack_antimaredian(arrayObj, geoType) {
 
   return geoArray;
 
-} 
+} */

@@ -141,25 +141,29 @@ $(document).ready(function () {
 
     var cont_list = null;
     //reading json file fill the info table
-    $.getJSON("data/infotab.json", function (data) {
+    $.getJSON("data/infotab_new.json", function (data) {
 
         get_con_list(data.slice(0))
         loadPdfList(data.slice(0))
 
         var content = '<table id="infoTable"  class="table table-striped table-bordered  display table-condensed"  cellspacing="0" ;height:500px; width:100%">' +
-            '<thead style="background-color:#008040;color:white;font-size: 15px;font-family:Arial">'+
-            '<tr><th>Sl.no.</th>'+    
+           '<thead style="background-color:#008040;color:white;font-size: 15px;font-family:Arial">'+
+           '<tr><th>Sl.no.</th>'+    
            '<th>Country</th>'+
-           '<th>Submission</th>'+
-         //   '<th>Entitlement</th>'+
-           '<th>Date of Ratification</th>'+
-           '<th>Deadline for Submission</th>'+
+           '<th>Submission?</th>'+
+           '<th>Submission Date</th>'+
+           '<th>Submission Status</th>'+
+           //'<th>Entitlement</th>'+
+           //'<th>Date of Ratification</th>'+
+           //'<th>Deadline for Submission</th>'+
            '<th>Preliminary Information Document</th>'+
-           '<th>Less than 200 NM Maritime Zone</th>'+
+           '<th>Preliminary Information Document Date</th>'+
+           //'<th>Less than 200 NM Maritime Zone</th></tr></thead>'
            '<th>Offshore Territories and Is.</th></tr></thead>';
 
         $.each(data, function (index, value) {
 
+            // Function to list associate countries
             var str = value.associate_country.toString().split(" ");
             var str_con ="";
             if(str.length > 1)
@@ -169,7 +173,7 @@ $(document).ready(function () {
                                
                     try{
                                 var valCon = data.filter(val => val.contry_cod == valc);
-                                valCon = valCon[0].contry_name;
+                                valCon = valCon[0].country_name;
                                 return " "+valCon;
                             }
                             catch(ex){
@@ -180,16 +184,44 @@ $(document).ready(function () {
                             });
              }
 
+             // Function to change submission/entitlement column to icons and append link if a submission exists
+             var sub_ent_url = "";
+             var sub_ent = value.submission_entitlement;
+             if (sub_ent == "SUBMISSION")
+             {
+                sub_ent_url = '<td class="text-center bg-success"><a href="' + value.submission_url + '"><i class="fa fa-check-circle" style="font-size:25px;color:#43A047;"></i></a></td>';
+             } else if (sub_ent == "NONE")
+             {
+                sub_ent_url = '<td class="text-center bg-warning"><i class="fa fa-minus-circle" title="No submission" style="font-size:25px;color:#FFEB3B;"></i></td>';
+             } else if (sub_ent == "NO ENTITLEMENT")
+             {
+                sub_ent_url = '<td class="text-center bg-warning"><i class="fa fa-times-circle" title="Not entitled to submission" style="font-size:25px;color:#FF5722;"></i></td>';
+             }
+
+             // Function to change PID column to icons and append link if a submission exists
+             var pid_url = "";
+             var pid = value.preliminary_document_url;
+             if(pid.length > 0)
+             {
+                pid_url = '<td class="text-center bg-success"><a href="' + value.preliminary_document_url + '"><i class="fa fa-check-circle" style="font-size:25px;color:#43A047;"></i></a></td>'
+             } else
+             {
+                pid_url = '<td class="text-center bg-warning"></td>';
+             }
+
             content = content + '<tr><td style="background-color:#008040;color: white;font-size: 16px;">' + value.sl_no +'</td>'+
-                 '<td class="bg-warning" style="font-size: 18px; font-weight:300px;"><a href="ecs_map.html?map_id=' + value.contry_cod + '&con_name=' + value.contry_name + '">' +
+                 '<td class="bg-warning" style="font-size: 18px; font-weight:300px;"><a href="ecs_map.html?map_id=' + value.contry_cod + '&con_name=' + value.country_name + '">' +
                 (value.contry_iso.toString().length > 1 ? '<img src="css/flags/blank.gif" class="flag flag-' +
-                    (value.contry_iso).toLowerCase() + '"/>' + '  -  ' + value.contry_name : value.contry_name) + '</a></td>' +
-                '<td class="text-center">' + value.submission + '</td>' +
-               // '<td class="text-center">' + value.no_entitlement + '</td>' +
-                '<td class="text-center">' + value.not_signature + '</td>' +
-                '<td class="text-center">' + value.later_dealine + '</td>' +
-                '<td class="text-center">' + value.preliminary_document + '</td>'+
-                '<td class="bg-warning">' + value.sea_less_than_200m + '</td>'+
+                    (value.contry_iso).toLowerCase() + '"/>' + '  -  ' + value.country_name : value.country_name) + '</a></td>' +
+                sub_ent_url +
+                '<td class="text-center bg-warning">' + value.submission_date + '</td>' +
+                '<td class="bg-warning">' + value.status + '</td>' +
+                //'<td class="text-center">' + value.no_entitlement + '</td>' +
+                //'<td class="text-center">' + value.not_signature + '</td>' +
+                //'<td class="text-center">' + value.later_dealine + '</td>' +
+                pid_url +
+                '<td class="text-center bg-warning">' + value.preliminary_document_date + '</td>'+
+                //'<td class="bg-warning">' + value.sea_less_than_200m + '</td>'+
                 '<td class="bg-warning">' + str_con + '</td></tr>';
            
 
@@ -206,20 +238,14 @@ $(document).ready(function () {
                 footer: true,
 
             },
+            "paging": true,
+            "pageLength": 10,
             "scrollY": "50vh",
             "scrollCollapse": true,
 
-            'rowCallback': function (row, data, index) {
-
-               // (data[1].toUpperCase() == 'YES' ? $(row).find('td:eq(1)').addClass("success") : $(row).find('td:eq(1)').addClass("warning"));
-                (data[2].toUpperCase() == 'YES' ? $(row).find('td:eq(2)').addClass("success").text("").append('<i class="fa fa-check-circle" style="font-size:25px;color:#008040;"></i>') : $(row).find('td:eq(2)').addClass("warning"));
-                (data[3].toUpperCase() == 'YES' ? $(row).find('td:eq(3)').addClass("success").text("").append('<i class="fa fa-check-circle" style="font-size:25px;color:#008040;"></i>') : $(row).find('td:eq(3)').addClass("warning"));
-                (data[4].toUpperCase() == 'YES' ? $(row).find('td:eq(4)').addClass("success").text("").append('<i class="fa fa-check-circle" style="font-size:25px;color:#008040;"></i>') : $(row).find('td:eq(4)').addClass("warning"));
-                (data[5].toUpperCase() == 'YES' ? $(row).find('td:eq(5)').addClass("success").text("").append('<i class="fa fa-check-circle" style="font-size:25px;color:#008040;"></i>') : $(row).find('td:eq(5)').addClass("warning"));
-                (data[6].toUpperCase() == 'YES' ? $(row).find('td:eq(6)').addClass("success").text("").append('<i class="fa fa-check-circle" style="font-size:25px;color:#008040;"></i>') : $(row).find('td:eq(6)').addClass("warning"));
-            },
+            
             "columnDefs": [{
-                "targets": 0,
+                "targets": [0,2,5],
                 "orderable": false
             }],
 
@@ -237,7 +263,7 @@ $(document).ready(function () {
     var cont_val = null;
     function get_con_list(cont_list) {
         cont_list = cont_list.map((val, i, arr) => {
-            return { 'id': val.contry_cod, 'name': val.contry_name };
+            return { 'id': val.contry_cod, 'name': val.country_name };
 
         });
 
@@ -266,7 +292,7 @@ $(document).ready(function () {
     }
 
 
-    $('#open_costalGIS').on('click', function (e) {
+    $('#open_coastalGIS').on('click', function (e) {
 
 
         window.open("ecs_map.html?map_id=" + cont_val.id + "&con_name=" + cont_val.name, "_self");
@@ -291,10 +317,10 @@ $(document).ready(function () {
                 //str value is greater than 2 it ia ECS id
                 var str_ecsID = str.filter(val => val.toString().length > 2);
 
-                //str value is euql to 2 it is acontry code
+                //str value is equal to 2 it is a country code
                 var str_con = str.filter(val => val.toString().length == 2).map((valc, i, arr) => {
                     var valCon = masterTable.filter(val => val.contry_cod == valc);
-                    valCon = valCon[0].contry_name;
+                    valCon = valCon[0].country_name;
                     return " "+valCon;
                 });
 

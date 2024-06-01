@@ -1,7 +1,4 @@
-
-
-
-var Points_Submissions_array = null;
+/*var Points_Submissions_array = null;
 var Submissions_Line_array = null;
 var Foot_of_Slope_array = null;
 var Reccomendation_Feature_array = null;
@@ -21,7 +18,7 @@ var Subcomissions_Statuse_temp = null;
 var Recommendations_Line_temp = null;
 var Reccomendation_Feature_temp = null;
 var Submissions_Line_temp = null;
-var Points_Submissions_temp = null;
+var Points_Submissions_temp = null;*/
 
 
 
@@ -89,281 +86,183 @@ $("#btnInfo-hide-btn").click(function () {
 
 
 
-//Base maps
-var OSM = L.tileLayer("http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png"
-  , {
-    attribution: '&copy; openstreetmap.org',
-    maxZoom: 30,
-  })
+
+//Layer styles
+function styleEEZpoly(feature) {
+  let style = {
+    color: '#000000',        // Default outline color
+    weight: 0,              // Default outline weight
+    opacity: 0,           // Default outline opacity
+    fillOpacity: 0.2,       // Default fill opacity
+    fillColor: '#FFFFFF'    // Default fill color
+  };
+
+  switch (feature.properties.POL_TYPE) {
+    case '200NM':
+      style.fillColor = '#0000FF';
+      break;
+    case 'Joint regime':
+      style.fillColor = '#00FF00';
+      break;
+    case 'Overlapping claim':
+      style.fillColor = '#FF0000';
+      break;
+  }
+
+  return style;
+  
+}
+
+function styleEEZline(feature) {
+  let style = {
+    color: '#000000',
+    weight: 1.2,
+    opacity: 0.7,
+    fillOpacity: 0,
+    fillColor: '#FFFFFF'
+  };
+
+  switch (feature.properties.LINE_TYPE) {
+    case '200 NM':
+    case '12 NM':
+      style.color = '#ADD8E6';
+      break;
+    case 'Treaty':
+    case 'Court ruling':
+      style.color = '#0000FF';
+      break;
+    case 'Connection line':
+    case 'Median line':
+      style.color = '#FFFF00';
+      break;
+    case 'Joint regime':
+      style.color = '#00FF00';
+      break;
+    case 'Unilateral claim (undisputed)':
+    case 'Unsettled (land)':
+    case 'Unsettled (maritime)':
+    case 'Unsettled median line (land)':
+    case 'Unsettled median line (maritime)':
+      style.color = '#FF0000';
+      break;
+
+  }
+
+  return style;
+  
+}
+
+function styleECSline(feature) {
+  let style = {
+    color: '#000000',
+    weight: 2.4,
+    opacity: 1,
+    fillOpacity: 0,
+    fillColor: '#FFFFFF'
+  };
+
+  switch (feature.properties.Status) {
+    case 'Submission awaiting consideration':
+      style.color = '#d3d3d3';
+      break;
+    case 'Submission under active consideration':
+      style.color = '#FFCCCB';
+      break;
+    case 'Submission with recommendations':
+      style.color = '#98FB98';
+      break;
+    case 'Submission with recommendations followed by deposit':
+      style.color = '#00FFFF';
+      break;
+  }
+
+  return style;
+  
+}
+
+function styleWorldBoundaries(feature) {
+  return {
+    color: 'white',
+    weight: 0,
+    opacity: 0       
+  };
+}
+
+//Get URL parameters and create filter condition
+function getUrlParam(name) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
+}
+
+var map_id = getUrlParam('map_id');
+var con_name = getUrlParam('con_name');
+
+var filterCondition = "1=1";
+if (map_id && map_id !== 'NOT') {
+  filterCondition = "State LIKE '%"+ con_name + "%'";
+}
 
 
-
+//Basemaps
 var arcgisOnline = new L.tileLayer(
   'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     attribution: '&copy; arcgisonline.com',
     maxZoom: 30,
   });
 
-
-//add acean layer
 var oceanLayer = L.esri.basemapLayer("Oceans");
 
 
-var GEBCO = L.tileLayer.wms("http://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv?", {
-  layers: 'GEBCO_LATEST_2',
-  transparent: true,
-  version: '1.1.0',
-  attribution: "http://www.gebco.net",
-  title: true,
-  srs: 'EPSG:4326',
-  format: 'image/png',
+//add the map control and center it
+map = L.map('map', {
+  zoom: 3,
+  center: [22.355, 21.109],
+  layers: [oceanLayer],
+  zoomControl: false,
+  attributionControl: false
 });
-
-
-var cartoLight = L.tileLayer("https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png", {
-  maxZoom: 19,
-  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://cartodb.com/attributions">CartoDB</a>'
-});
-
-
-var usgsImagery = L.layerGroup([L.tileLayer("http://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}", {
-  maxZoom: 15,
-}), L.tileLayer.wms("http://raster.nationalmap.gov/arcgis/services/Orthoimagery/USGS_EROS_Ortho_SCALE/ImageServer/WMSServer?", {
-  minZoom: 16,
-  maxZoom: 19,
-  layers: "0",
-  format: 'image/jpeg',
-  transparent: true,
-  attribution: "Aerial Imagery courtesy USGS"
-})]);
-
-
-//Base map Layers end
-
-
-
-
-
-//add feature layers
-
-//add country Layer
-/*  var ecs_country = L.esri.featureLayer({
-  url: 'http://tuvalu.grida.no/arcgis/rest/services/ECS/UNEP_ECS/MapServer/9',
-  //  simplifyFactor:0.5,
-  //  precision: 5,
-  style: function (feature) {
-    return {
-      color: '#00A4AB',
-      fillColor: '#00E5EE',
-      fill: true,
-      fillOpacity: 0.1,
-      opacity: 0.9,
-      clickable: true,
-      weight: 1,
-
-    };
-  },
-  onEachFeature: function (feature, layer) {
-
-    var content = "<table class='table table-striped table-bordered table-condensed'>";
-    content = content + "<tr><td><b>Country Name:</b></td>"
-    content = content + "<td>" + feature.properties.CNTRY_NAME + "</td></tr>"
-    content = content + "<table>";
-
-    //popup the info window
-    layer.on({
-      click: function (e) {
-
-        highlight.clearLayers().addLayer(L.polygon(layer.getLatLngs(), polyhighlightStyle));
-
-
-      }
-    });
-    layer.bindPopup(content);
-
-    layer.on({
-      mouseover: function (e) {
-        var layer = e.target;
-        layer.setStyle({
-          weight: 3,
-          color: "#00FFFF",
-          opacity: 1
-        });
-        if (!L.Browser.ie && !L.Browser.opera) {
-          layer.bringToFront();
-        }
-      },
-      mouseout: function (e) {
-
-        return e.target.setStyle({
-
-          color: '#00A4AB',
-          fillColor: '#00E5EE',
-          fill: true,
-          fillOpacity: 0.1,
-          opacity: 0.9,
-          clickable: true,
-          weight: 1,
-
-        });
-
-
-      }
-
-
-    });
-
-  },
-  mapid:2
-
-
-});  */
-
-
-
-
-//Feature baselayer***********************
 
 //GRID ArcGIS base url
 
-base_url="http://tuvalu.grida.no/arcgis/rest/services/ECS/UNEP_ECSv2/MapServer";
+var base_url="https://services1.arcgis.com/ZdmoaKLXhx5EdwBs/arcgis/rest/services";
 
-//add GNIS Feature
-var GNIS_Feature = L.esri.dynamicMapLayer({
-  url: base_url,
-  layers: [0],
-  opacity: 1,
-  format: 'image/png',
-  mapid:13
-});
+var EEZ_poly_url=base_url.concat("/eez_v12_lowres_feature/FeatureServer/0");
+var EEZ_line_url=base_url.concat("/MarineRegions_EEZ_line/FeatureServer/0");
+var ECS_line_url=base_url.concat("/ECS_Submissions_Line/FeatureServer/0");
+var boundaries_url=base_url.concat("/WorldAdminBoundaries/FeatureServer/0")
+var geomorphology_url="https://oceans1.arcgis.com/arcgis/rest/services/World_Seafloor_Geomorphology/MapServer";
 
+//ECS Submissions Line
+var ECS_submission_line = L.esri.featureLayer({
+  url: ECS_line_url,
+  style: styleECSline,
+  where: filterCondition
+})
 
-//Points Submissions
-var Points_Submissions = L.esri.dynamicMapLayer({
-  url: base_url,
-  layers: [1],
-  opacity: 1,
-  format: 'image/png',
-  mapid:12
-});
+//EEZ Boundaries Polygon
+var EEZ_boundary_poly = L.esri.featureLayer({
+  url: EEZ_poly_url,  
+  style: styleEEZpoly
+})
 
+var EEZ_boundary_line = L.esri.featureLayer({
+  url: EEZ_line_url,
+  style: styleEEZline,
+  where: "LINE_TYPE NOT IN ('Archipelagic baseline', 'Normal baseline (official)', 'Straight baseline')"
+})
 
-//Reccomendation Feature
-var Reccomendation_Feature = L.esri.dynamicMapLayer({
-  url: base_url,
-  layers: [2],
-  opacity: 1,
-  format: 'image/png',
-  mapid:11
-});
+var national_boundaries = L.esri.featureLayer({
+  url: boundaries_url,
+  style: styleWorldBoundaries
+})
 
-//Foot of Slope
-var Foot_of_Slope = L.esri.dynamicMapLayer({
-  url: base_url,
-  layers: [3],
-  opacity: 1,
-  format: 'image/png',
-  mapid:10
-});
-
-
-//Subcomissions Status
-var Subcomissions_Statuse = L.esri.dynamicMapLayer({
-  url: base_url,
-  layers: [4],
-  opacity: 1,
-  format: 'image/png',
-  mapid:9
-});
-
-
-//Submissions Line
-var Submissions_Line = L.esri.dynamicMapLayer({
-  url: base_url,
-  layers: [5],
-  opacity: 1,
-  format: 'image/png',
-  mapid:8
-});
-
-
-//Recommendations_Line
-var Recommendations_Line = L.esri.dynamicMapLayer({
-  url: base_url,
-  layers: [6],
-  opacity: 1,
-  format: 'image/png',
-  mapid:7
-});
-
-
-//Revisions Line
-var Revisions_Line = L.esri.dynamicMapLayer({
-  url: base_url,
-  layers: [7],
-  opacity: 1,
-  format: 'image/png',
-  mapid:6
-});
-
-//Not Under Consideration
-var Not_Under_Consideration = L.esri.dynamicMapLayer({
-  url: base_url,
-  layers: [8],
-  opacity: 1,
-  format: 'image/png',
-  mapid:5
-});
-
-//Not Under Consideration
-var ecs_country = L.esri.dynamicMapLayer({
-  url: base_url,
-  layers: [9],
-  opacity: 1,
-  format: 'image/png',
-  mapid:4
-});
-
-
-// Coastline
-var Coastline = L.esri.dynamicMapLayer({
-  url: base_url,
-  layers: [10],
-  opacity: 1,
-  format: 'image/png',
-  mapid:3
-});
-
-
-// geomorphic
-var Geomorphic = L.esri.dynamicMapLayer({
-  url: base_url,
-  layers: [11],
-  opacity: 1,
-  format: 'image/png',
-  mapid:2
-});
-
-//EEZ Line
-var EEZLine = L.esri.dynamicMapLayer({
-  url: base_url,
-  layers: [12],
-  opacity: 1,
-  format: 'image/png',
-  mapid:1
-});
-
-
-//EEZ polygon layerremove
-var EEZPoly = L.esri.dynamicMapLayer({
-  url: base_url,
-  layers: [13],
-  opacity: 1,
-  format: 'image/png',
-  mapid:0
-});
-
-
+//TODO: Fix geomorphology. Currently it is unaccessible as CORS is disabled for this map layer. Could recreate it with publicly available data.
+// Geomorphic features
+var geomorphology = L.esri.dynamicMapLayer({
+  url: geomorphology_url,
+  format: "image",
+  opacity: 1
+  });
 
 //polygon highlight
 var polyhighlightStyle = {
@@ -397,22 +296,13 @@ var highlightStyle = {
 };
 
 
-//add the map control and center it
-map = L.map('map', {
-  zoom: 3,
-  center: [22.355, 21.109],
-  layers: [ecs_country, oceanLayer,highlight,infoLayer],
-  zoomControl: false,
-  attributionControl: false
-});
 
-//fix the map bound
-/* ecs_country.query().run(function (error, geojson, response) {
-
-  //map.setMaxBounds(L.geoJson(geojson).getBounds());
-
-}); */
-
+// Add layers to the map
+EEZ_boundary_poly.addTo(map);
+EEZ_boundary_line.addTo(map);
+ECS_submission_line.addTo(map);
+geomorphology.addTo(map);
+national_boundaries.addTo(map);
 
 
 /* Attribution control */
@@ -432,7 +322,7 @@ var attributionControl = L.control({
 });
 attributionControl.onAdd = function (map) {
   var div = L.DomUtil.create("div", "leaflet-control-attribution");
-  div.innerHTML = "<span class='hidden-xs'><a href='http://www.grida.no/' target='_blank'>GRID-Arenda</a> | </span>";
+  div.innerHTML = "<span class='hidden-xs'><a href='http://www.grida.no/' target='_blank'>GRID-Arendal</a> | </span>";
   return div;
 };
 
@@ -468,155 +358,59 @@ if (document.body.clientWidth <= 767) {
   var isCollapsed = false;
 }
 
-
-
-
-var baseMaps = [{
-  groupName: "Base Maps",
-  expanded: false,
-  layers: {
+var baseMaps = {
     "Aerial Imagery": arcgisOnline,
-    "OpenStreetMap": OSM,
-    "Oceans": oceanLayer,
-    "GEBCO": GEBCO,
-    "CartoLight": cartoLight,
-    "USGS Imagery": usgsImagery
+    "Oceans": oceanLayer    
+    };
 
-  }
-}
-];
+var overlays = {
+    "EEZ Boundaries": EEZ_boundary_poly,
+    "EEZ Lines": EEZ_boundary_line,
+    "ECS Submission Lines": ECS_submission_line,
+    "Geomorphology": geomorphology 
+  };
 
-
-
-var overlays = [
-  {
-    groupName: "Marine Region",
-    expanded: true,
-    layers: {
-
-      "ECS Country": ecs_country,
-      "Coastline": Coastline,
-      "EEZ Polygon": EEZPoly,
-      "EEZ Line": EEZLine
-
-
-    }
-  },
-  {
-    groupName: "Submissions",
-    expanded: false,
-    layers: {
-
-      "Points Submissions": Points_Submissions,
-      "Submissions Line": Submissions_Line
-
-
-
-    }
-  },
-  {
-    groupName: "Point of Interest",
-    expanded: false,
-    layers: {
-      "Foot_of_Slope": Foot_of_Slope,
-      "GNIS_Feature": GNIS_Feature
-
-
-
-    }
-  },
-  {
-    groupName: "Recommendation",
-    expanded: false,
-    layers: {
-
-      "Recommendation Point": Reccomendation_Feature,
-      "Recommendations Line": Recommendations_Line
-
-
-    }
-  },
-  {
-    groupName: "Subcomissions",
-    expanded: false,
-    layers: {
-
-      "Subcomissions Status": Subcomissions_Statuse,
-
-
-
-    }
-  },
-  {
-    groupName: "Revisions",
-    expanded: false,
-    layers: {
-
-      "Revisions Line": Revisions_Line,
-
-
-
-    }
-  },
-  {
-    groupName: "Consideration",
-    expanded: false,
-    layers: {
-
-      "Not under Consideration": Not_Under_Consideration,
-
-
-
-    }
-  },
-  {
-    groupName: "Geomorphic Feature",
-    expanded: false,
-    layers: {
-
-      "Geomorphic Feature": Geomorphic,
-
-
-
-    }
-  }
-];
-
-
-
-
-/* Add legend */
+/* Add layer control */
 var options = {
-  container_width: "250px",
-  group_maxHeight: "180px",
-  container_maxHeight: "350px",
-  exclusive: true,
   collapsed: false
 };
 
-var control = L.Control.styledLayerControl(baseMaps, overlays, options);
-map.addControl(control);
+var layerControl = L.control.layers(baseMaps, overlays, options)
+layerControl.addTo(map)
 
+//TODO: Make legend dynamic
+//ECS legend
+var legendECS = L.control({ position: "bottomleft" });
 
+legendECS.onAdd = function (map) {
+  var div = L.DomUtil.create('div', 'info legend');
+  div.innerHTML = '<h4> Submissions to the CLCS </h4>';
+  div.innerHTML += '<i style="background: #d3d3d3"></i><span>Awaiting consideration</span><br>';
+  div.innerHTML += '<i style="background: #FFCCCB"></i><span>Under active consideration</span><br>';
+  div.innerHTML += '<i style="background: #98FB98"></i><span>Recommendations</span><br>';
+  div.innerHTML += '<i style="background: #00FFFF"></i><span>Recommendations followed by deposit</span><br>';
+  return div;
+};
 
-//controlling the legend size /popup
-function sizeLayerControl() {
-  $(".leaflet-control-layers").css("max-height", $("#map").height() - 50);
+// Add
+legendECS.addTo(map);
 
-  if (($("#navcol").is(":visible"))) {
+//EEZ legend
+var legendEEZ = L.control({ position: "bottomleft" });
 
-    map.removeControl(control);
-    control.options.collapsed = false;
-    map.addControl(control);
-  }
-  else {
-    map.removeControl(control);
-    control.options.collapsed = true;
-    map.addControl(control);
+legendEEZ.onAdd = function (map) {
+  var div = L.DomUtil.create('div', 'info legend');
+  div.innerHTML = '<h4> EEZ boundaries </h4>';
+  div.innerHTML += '<i style="background: #ADD8E6"></i><span>200 NM</span><br>';
+  div.innerHTML += '<i style="background: #0000FF"></i><span>Treaty/court ruling</span><br>';
+  div.innerHTML += '<i style="background: #FFFF00"></i><span>Median line</span><br>';
+  div.innerHTML += '<i style="background: #00FF00"></i><span>Joint regime</span><br>';
+  div.innerHTML += '<i style="background: #FF0000"></i><span>Contested/unilateral</span><br>';
+  return div;
+};
 
-  }
-}
-
+// Add the legend to the map
+legendEEZ.addTo(map);
 
 
 
@@ -643,118 +437,57 @@ if (!L.Browser.touch) {
 //$("#loading").hide();
 
 
+//ECS line popup
+ECS_submission_line.on('click', function(e) {
+  var feature = e.layer.feature;
+  var properties = feature.properties;
+  var popupContent = '<div>';
+  popupContent += '<h3><strong>' + properties.State + '</strong><h3>';
+  popupContent += '<p>Status: ' + properties.Status + '</p>'
+  popupContent += '<p>View submission: <a href="' + properties.Link + '" target="_blank">Click Here</a></p>';
+  
 
-
-$(document).ready(function () {
-  var map_id = $.urlParam('map_id');
-  if (map_id.toString() != "NOT") {
-    //do some things
-
-  }
-  else {
-
-    $("#sidebar").hide();
-    map.invalidateSize();
-  }
-
-
+  L.popup()
+    .setLatLng(e.latlng) // Set the location to where the polygon was clicked
+    .setContent(popupContent)
+    .openOn(map);
 });
 
+//EEZ polygon popup
+EEZ_boundary_poly.on('click', function(e) {
+  var feature = e.layer.feature;
+  var properties = feature.properties;
+  var popupContent = '<p><h4>' + properties.GEONAME + '</h4></p>';
 
+  L.popup()
+    .setLatLng(e.latlng) // Set the location to where the polygon was clicked
+    .setContent(popupContent)
+    .openOn(map);
+});
 
+// Zoom to the feature with the specified map_id when the layer is loaded
 
-$( document ).ready(function () {
+$(document).ready(function() {
+  var zoomed = false; // Flag to track whether zooming has occurred
+  
+  if (map_id && map_id !== 'NOT') {
+      ECS_submission_line.on('load', function() {
+          if (!zoomed) { // Check if zooming has not occurred yet
+              var query = L.esri.query({
+                  url: ECS_line_url
+              });
 
-  //return the 
-  var map_id = $.urlParam('map_id');
- 
-
-  if (map_id.toString() != "NOT") {
-
-//Filter the layerdata based on country
- Points_Submissions.options.layerDefs= {1:"country_code LIKE '%"+map_id+"%'"};
- Reccomendation_Feature.options.layerDefs= {2:"country_code LIKE '%"+map_id+"%'"};
- Foot_of_Slope.options.layerDefs= {3:"country_code LIKE '%"+map_id+"%'"};
- Subcomissions_Statuse.options.layerDefs= {4:"country_code LIKE '%"+map_id+"%'"};;
- Submissions_Line.options.layerDefs= {5:"country_code LIKE '%"+map_id+"%'"};
- Recommendations_Line.options.layerDefs= {6:"country_code LIKE '%"+map_id+"%'"};
- Revisions_Line.options.layerDefs= {7:"country_code LIKE '%"+map_id+"%'"};
- Not_Under_Consideration.options.layerDefs= {8:"country_code LIKE '%"+map_id+"%'"};
- Geomorphic.options.layerDefs= {11:"country_code LIKE '%"+map_id+"%'"};
-
-
-
-
-    //Zoom to selected feature
-    ecs_country.query()
-    .layer(9)
-      .fields(["FIPS_10_,NAME_LONG,OBJECTID"])
-      .where("FIPS_10_ ='" + map_id + "'")
-      .returnGeometry(true).run(function (error, latlongs, response) {
-
-        map.fitBounds(L.geoJson(latlongs).getBounds());
-        //map.zoomOut(1);
-
-       /*  ecs_country.setFeatureStyle(response.features[0].attributes.OBJECTID, {
-          color: 'yellow',
-          weight: 2,
-          opacity: 0.85,
-          fillOpacity: 0.5
-        }); */
-
-        highlight.clearLayers().addLayer(L.geoJson(latlongs, {
-          color: '#00FFFF',
-          weight: 2,
-          opacity: 1,
-          fillOpacity: 0.3
-        }));
-        ecs_country.bringToBack();
-
+              query.where("State LIKE '%" + con_name + "%'").run(function(error, featureCollection) {
+                  if (featureCollection.features.length > 0) {
+                      var bounds = L.geoJson(featureCollection).getBounds();
+                      map.flyToBounds(bounds);
+                      zoomed = true; // Set flag to true after zooming
+                  }
+              });
+          }
       });
-
-    
-    
-      //query on entire map
-       queryMap(map_id);
-       
-
   }
-
 });
-
-//zoom process finished
-//return the query string val
-$.urlParam = function (name, url) {
-  if (!url) {
-    url = window.location.href;
-  }
-  var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(url);
-  if (!results) {
-    return undefined;
-  }
-  return results[1] || undefined;
-}
-
-
-
-
-// Split(['#map', '#info_template'], {
-//   sizes: [50,50],
-//   direction: 'vertical'
-// })
-
-function animateSidebar() {
-  $("#sidebar").animate({
-    width: "toggle"
-  }, 350, function () {
-    map.invalidateSize();
-  });
-}
-
-//get the popup on click on point
-
-
-
 
 
 // Not_Under_Consideration.bindPopup(function (error, featureCollection) {
@@ -786,7 +519,7 @@ function animateSidebar() {
 
 
 
-function queryMap(map_id) {
+/*function queryMap(map_id) {
   var dynLayer = L.esri.dynamicMapLayer({
     url: "http://tuvalu.grida.no/arcgis/rest/services/ECS/UNEP_ECSv2/MapServer",
   });
@@ -1305,77 +1038,29 @@ $("#Geomorphic_a").text(Geomorphic_array.length);
 }//query map end 
 
 
-//add layer Points_Submissions 
+//add layer EEZ_boundary_poly 
   $('#collapseOne').on('show.bs.collapse', function (e) {
     
- if(!map.hasLayer(Points_Submissions))
- {   map.addLayer(Points_Submissions)  }
+ if(!map.hasLayer(EEZ_boundary_poly))
+ {   map.addLayer(EEZ_boundary_poly)  }
 
   });
   
-//add layer Line_Submissions 
+//add layer ECS_submission_line 
   $('#collapseTwo').on('show.bs.collapse', function (e) {
     
-    if(!map.hasLayer(Submissions_Line))
-    {   map.addLayer(Submissions_Line)  }
+    if(!map.hasLayer(ECS_submission_line))
+    {   map.addLayer(ECS_submission_line)  }
    
      });
 
-//add layer Reccomendation Feature point
+//add layer geomorphology
 $('#collapseThree').on('show.bs.collapse', function (e) {
     
-  if(!map.hasLayer(Reccomendation_Feature))
-  {   map.addLayer(Reccomendation_Feature)  }
+  if(!map.hasLayer(geomorphology))
+  {   map.addLayer(geomorphology)  }
  
    });
-
-//add layer Reccomendation Feature Line
-$('#collapseThree1').on('show.bs.collapse', function (e) {
-    
-  if(!map.hasLayer(Recommendations_Line))
-  {   map.addLayer(Recommendations_Line)  }
- 
-   });
-
-   //add layer Subcomissions_Status
-$('#collapseThree2').on('show.bs.collapse', function (e) {
-    
-  if(!map.hasLayer(Subcomissions_Statuse))
-  {   map.addLayer(Subcomissions_Statuse)  }
- 
-   });
-
-   //add layer Subcomissions_Status
-   $('#collapseThree3').on('show.bs.collapse', function (e) {
-    
-    if(!map.hasLayer(Revisions_Line))
-    {   map.addLayer(Revisions_Line)  }
-   
-     });
-
-      //add layer Not_Under_Consideration
-   $('#collapseThree4').on('show.bs.collapse', function (e) {
-    
-    if(!map.hasLayer(Not_Under_Consideration))
-    {   map.addLayer(Not_Under_Consideration)  }
-   
-     });
-
-  //add layer Foot_of_Slope
-   $('#collapseThree5').on('show.bs.collapse', function (e) {
-    
-    if(!map.hasLayer(Foot_of_Slope))
-    {   map.addLayer(Foot_of_Slope)  }
-   
-     });
-
-    //add layer Geomorphic 
-    $('#collapseThree6').on('show.bs.collapse', function (e) {
-    
-      if(!map.hasLayer(Geomorphic))
-      {   map.addLayer(Geomorphic)  }
-     
-       });
 
 //add the associated recomendation and its doenload
 var map_id = $.urlParam('map_id');
@@ -1476,4 +1161,4 @@ function getFeatureInfoUrl(map, layer, latlng, params) {
 
 } */
 
-//********************Wms getfeture function end
+//********************Wms getfeture function end*/
