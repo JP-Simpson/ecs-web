@@ -167,6 +167,12 @@ header .navbar {
 .navbar-fixed-top
 {
 height: 60px;
+padding-top: 4px;
+padding-right: 18px;
+height: auto;
+margin-bottom: 0;
+background: #fff;
+
 
 }
 
@@ -178,7 +184,8 @@ height: 60px;
   width: 100%;
   padding: 0;
 }
-.navbar-brand {
+.navbar-brand 
+{
   height: auto;
   font-weight: bold;
   font-size: 32px;
