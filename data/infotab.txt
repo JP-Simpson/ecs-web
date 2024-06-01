@@ -1,0 +1,199 @@
+sl_no	contry_cod	contry_iso	country_name	associate_country	submission	submission_entitlement	submission_date	status	submission_url	preliminary_document_date	preliminary_document_url	no_entitlement	not_signature	later_dealine
+1	RS	RU	Russia		YES	SUBMISSION	20/12/2001	Submission with recommendations followed by deposit	https://www.un.org/depts/los/clcs_new/submissions_files/submission_rus.htm					
+2	SV	SJ	Svalbard	NO	YES	SUBMISSION	27/11/2006	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_nor.htm					
+3	CA	CA	Canada		YES	SUBMISSION	23/05/2019	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_can1_84_2019.html	6/12/2013	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/can_pi_en.pdf			
+4	JN	SJ	Jan Mayen	NO	YES	SUBMISSION	27/11/2006	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_nor.htm					
+5	GL	GL	Greenland	DA	YES	SUBMISSION	15/12/2014	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_dnk_76_2014.htm					
+6	NO	NO	Norway	SV JN BV AY	YES	SUBMISSION	27/11/2006	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_nor.htm					
+7	IC	IS	Iceland		YES	SUBMISSION	29/04/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_isl_27_2009.htm					
+8	FO	FO	Faroe Islands	DA	YES	SUBMISSION	29/04/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_dnk_28_2009.htm					
+9	FI	FI	Finland			NO ENTITLEMENT						YES		
+10	EN	EE	Estonia			NO ENTITLEMENT						YES		
+11	LG	LV	Latvia			NO ENTITLEMENT						YES		
+12	SW	SE	Sweden			NO ENTITLEMENT						YES		
+13	UK	GB	United Kingdom	IM GK JE GI BD TK CJ VI AV VQ MH IO SH PC SX AY FK	YES	SUBMISSION	19/05/2006	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_frgbires.htm					
+14	LH	LT	Lithuania			NO ENTITLEMENT						YES		
+15	EI	IE	Ireland		YES	SUBMISSION	25/05/2005	Submission with recommendations followed by deposit	https://www.un.org/depts/los/clcs_new/submissions_files/submission_irl.htm					
+16	DA	DK	Denmark	GL FO		NO ENTITLEMENT						YES		
+17	PL	PL	Poland			NO ENTITLEMENT						YES		
+18	IM		Isle of Man	UK		NONE								
+19	GM	DE	Germany			NO ENTITLEMENT						YES		
+20	NL	NL	Netherlands	AA NT		NO ENTITLEMENT						YES		
+21	UP	UA	Ukraine			NO ENTITLEMENT						YES		
+22	BE	BE	Belgium			NO ENTITLEMENT						YES		
+23	FR	FR	France	SB MB FG MF WF JU FP NC RE FS AY	YES	SUBMISSION	19/05/2006	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_frgbires.htm					
+24	GK	GG	Guernsey	UK		NONE								
+25	JE	JE	Jersey	UK		NONE								
+26	US	US	United States	MQ WQ CQ GQ HQ FQ AQ		NONE							YES	
+27	SB	PM	Saint Pierre & Miquelon	FR	YES	SUBMISSION	16/04/2014	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_fra_72_2014.htm	YES				
+28	SI	SI	Slovenia			NO ENTITLEMENT						YES		
+29	BU	BG	Bulgaria			NO ENTITLEMENT						YES		
+30	SP	ES	Spain		YES	SUBMISSION	11/05/2009	Submission with recommendations followed by deposit	https://www.un.org/depts/los/clcs_new/submissions_files/submission_esp_47_2009.htm	11/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/esp_can_2009_preliminaryinfo.pdf			
+31	MN	MC	Monaco			NO ENTITLEMENT						YES		
+32	GG	GE	Georgia			NO ENTITLEMENT						YES		
+33	HR	HR	Croatia			NO ENTITLEMENT						YES		
+35	TU	TR	Turkey			NO ENTITLEMENT						YES		
+36	GR	GR	Greece			NO ENTITLEMENT						YES		
+37	KS	KR	South Korea		YES	SUBMISSION	26/12/2012	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_kor_65_2012.htm	11/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/kor_2009preliminaryinformation.pdf			
+38	IZ	IQ	Iraq			NO ENTITLEMENT						YES		
+39	TS	TN	Tunisia			NO ENTITLEMENT						YES		
+40	AG	DZ	Algeria			NO ENTITLEMENT						YES		
+41	PK	PK	Pakistan		YES	SUBMISSION	30/04/2009	Submission with recommendations followed by deposit	https://www.un.org/depts/los/clcs_new/submissions_files/submission_pak_29_2009.htm					
+42	GI	GI	Gibraltar	UK		NO ENTITLEMENT						YES		
+43	MT	MT	Malta			NO ENTITLEMENT						YES		
+44	MO	MA	Morocco			NONE				3/08/2015	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/Mor2015_preliminaryinfo.pdf			
+45	CY	CY	Cyprus			NO ENTITLEMENT						YES		
+46	LE	LB	Lebanon			NO ENTITLEMENT						YES		
+47	JA	JP	Japan		YES	SUBMISSION	12/11/2008	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_jpn.htm					
+48	JO	JO	Jordan			NO ENTITLEMENT						YES		
+49	SY	SY	Syria			NO ENTITLEMENT						YES		
+50	IS	IL	Israel			NO ENTITLEMENT						YES		
+51	LY	LY	Libya			NO ENTITLEMENT						YES		
+52	PO	PT	Portugal		YES	SUBMISSION	11/05/2009	Submission under active consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_prt_44_2009.htm					
+53	MX	MX	Mexico		YES	SUBMISSION	19/12/2011	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_mex58_2011.htm	6/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/mex2009_preliminaryinfo.pdf			
+54	BD	BM	Bermuda	UK		NONE								
+55	EG	EG	Egypt			NO ENTITLEMENT						YES		
+56	GZ	PS	Gaza Strip			NO ENTITLEMENT						YES		
+57	KU	KW	Kuwait			NO ENTITLEMENT						YES		
+58	MQ	UM	Midway Islands	US		NONE								
+60	MR	MR	Mauritania		YES	SUBMISSION	25/09/2014	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_wa7_75_2014.htm	11/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/mrt2009informationpreliminaire.pdf			
+61	IR	IR	Iran			NO ENTITLEMENT						YES		
+62	BG	BD	Bangladesh		YES	SUBMISSION	25/02/2011	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_bgd_55_2011.htm					
+63	BA	BH	Bahrain			NO ENTITLEMENT						YES		
+64	QA	QA	Qatar			NO ENTITLEMENT						YES		
+65	AE	AE	United Arab Emirates			NO ENTITLEMENT						YES		
+67	VM	VN	Vietnam		YES	SUBMISSION	7/05/2009	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_vnm_37_2009.htm					
+68	CU	CU	Cuba		YES	SUBMISSION	1/06/2009	Submission under active consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_cub_51_2009.htm	12/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/cub2009preliminaryinformation.pdf			
+69	SU	SD	Sudan			NO ENTITLEMENT						YES		
+70	TK	TC	Turks & Caicos Islands	UK		NONE								
+71	BF	BS	The Bahamas		YES	SUBMISSION	6/02/2014	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_bhs_71_2014.htm	12/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/bhs2009preliminaryinformation.pdf			
+72	TH	TH	Thailand			NO ENTITLEMENT						YES		
+73	CH	CN	China			NONE	14/12/2012	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_chn_63_2012.htm	11/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/chn2009preliminaryinformation_english.pdf			
+74	DR	DO	Dominican Republic			NO ENTITLEMENT						YES		
+75	CJ	KY	Cayman Islands	UK		NONE								
+76	WQ	UM	Wake Island	US		NONE								
+77	HA	HT	Haiti			NO ENTITLEMENT						YES		
+78	BM	MM	Myanmar		YES	SUBMISSION	16/12/2008	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_mmr.htm					
+79	RP	PH	Philippines		YES	SUBMISSION	8/04/2009	Submission with recommendations followed by deposit	https://www.un.org/depts/los/clcs_new/submissions_files/submission_phl_22_2009.htm					
+80	RQ	PR	Puerto Rico			NO ENTITLEMENT						YES		
+81	JM	JM	Jamaica			NO ENTITLEMENT						YES		
+82	BH	BZ	Belize			NO ENTITLEMENT						YES		
+83	VI	VG	British Virgin Islands	UK		NONE								
+84	AV	AI	Anguilla	UK		NONE								
+85	GT	GT	Guatemala			NO ENTITLEMENT						YES		
+86	VQ	VI	Virgin Islands	UK		NONE								
+87	SC	KN	Saint Kitts & Nevis			NO ENTITLEMENT						YES		
+88	AC	AG	Antigua & Barbuda		YES	SUBMISSION								
+89	MH	MS	Montserrat	UK		NONE								
+90	JQ	UM	Johnston Atoll	US		NONE								
+91	CV	CV	Cape Verde		YES	SUBMISSION	25/09/2014	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_wa7_75_2014.htm	7/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/cpv_2009_preliminary_information.pdf			
+93	SG	SN	Senegal		YES	SUBMISSION	25/09/2014	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_wa7_75_2014.htm	12/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/sen2009informationpreliminaire.pdf			
+94	GP	GP	Guadeloupe	FR	YES	SUBMISSION	5/02/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_fra1.htm					
+95	HO	HN	Honduras			NO ENTITLEMENT						YES		
+96	DO	DM	Dominica			NO ENTITLEMENT						YES		
+97	CQ	MP	Northern Mariana Islands	US		NONE								
+98	NU	NI	Nicaragua			NONE				7/04/2010	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/nic_preliminaryinformation2010.pdf			
+99	MB	MQ	Martinique	FR	YES	SUBMISSION	5/02/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_fra1.htm					
+100	CB	KH	Cambodia			NO ENTITLEMENT						YES		
+101	ES	SV	El Salvador			NO ENTITLEMENT						YES		
+103	NI	NG	Nigeria		YES	SUBMISSION	7/05/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_nga_38_2009.htm					
+104	GA	GM	The Gambia		YES	SUBMISSION	25/09/2014	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_wa7_75_2014.htm	4/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/gmb_2009_preliminaryinfo.pdf			
+105	GQ	GU	Guam	US		NONE								
+107	BB	BB	Barbados		YES	SUBMISSION	8/05/2008	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_brb.htm					
+108	CM	CM	Cameroon			NONE				11/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/cmr2009informationpreliminaire.pdf			
+109	DJ	DJ	Djibouti			NO ENTITLEMENT						YES		
+110	PU	GW	Guinea-Bissau		YES	SUBMISSION	25/09/2014	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_wa7_75_2014.htm	8/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/gnb2009preliminaryinfo.pdf			
+111	GV	GN	Guinea		YES	SUBMISSION	25/09/2014	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_wa7_75_2014.htm	11/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/gin2009infopreliminaire.pdf			
+112	AA	AW	Aruba	NL		NONE								
+113	CO	CO	Colombia			NONE								YES
+114	BN	BJ	Benin			NONE	21/09/2018	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_bentgo_80_2018.htm	12/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/ben_2009preliminaryinformation_update.pdf			
+115	NT	AN	Netherlands Antilles	NL		NONE								
+117	SO	SO	Somalia		YES	SUBMISSION	21/07/2014	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_som_74_2014.htm	14/04/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/som_2009_preliminaryinfo.pdf			
+118	CS	CR	Costa Rica			NONE	16/12/2020	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_criecu_86_2020.htm	11/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/cri2009informacion_preliminar.pdf			
+119	VE	VE	Venezuela			NO ENTITLEMENT						YES		
+120	GH	GH	Ghana		YES	SUBMISSION	28/04/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_gha_26_2009.htm					
+121	TO	TG	Togo			NONE	21/09/2018	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_bentgo_80_2018.htm	8/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/tgo_2009_preliminaryinfo.pdf			
+122	TD	TT	Trinidad & Tobago		YES	SUBMISSION	12/05/2009	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_tto_49_2009.htm					
+124	SL	SL	Sierra Leone		YES	SUBMISSION	25/09/2014	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_wa7_75_2014.htm	12/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/sle2009preliminaryinformation.pdf			
+125	CE	LK	Sri Lanka		YES	SUBMISSION	8/05/2009	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_lka_43_2009.htm					
+126	GY	GY	Guyana		YES	SUBMISSION	6/09/2011	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_guy_57_2011.htm	12/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/guy2009preliminaryinformation.pdf			
+127	LI	LR	Liberia			NONE	23/10/2018	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_lib_81_2018.htm					YES
+128	PS	PW	Palau		YES	SUBMISSION	8/05/2009	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_plw_41_2009.htm					
+129	PM	PA	Panama			NO ENTITLEMENT						YES		
+130	RM	MH	Marshall Islands			NO ENTITLEMENT						YES		
+131	IN	IN	India		YES	SUBMISSION	11/05/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_ind_48_2009.htm					
+132	FM	FM	Micronesia		YES	SUBMISSION	5/05/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_fmpgsb_32_2009.htm	5/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/fsm_preliminaryinfo.pdf			
+133	NS	SR	Suriname		YES	SUBMISSION	5/12/2008	Submission with recommendations followed by deposit	https://www.un.org/depts/los/clcs_new/submissions_files/submission_sur.htm					
+134	FG	GF	French Guiana	FR	YES	SUBMISSION	22/05/2007	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_fra.htm					
+135	CG	CD	Congo			NONE				11/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/cod2009informationpreliminaire1.pdf			
+136	IV	CI	Côte d'Ivoire		YES	SUBMISSION	8/05/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_civ_42_2009.htm					
+137	BX	BN	Brunei			NONE				12/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/brn2009preliminaryinformation.pdf			
+138	KE	KE	Kenya		YES	SUBMISSION	6/05/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_ken_35_2009.htm					
+139	EK	GQ	Equatorial Guinea			NONE				14/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/gnq2009preliminaryinformation.pdf			
+140	CF	CG	Congo			NONE				12/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/cog2009informationpreliminaire.pdf			
+141	MV	MV	Maldives		YES	SUBMISSION	26/07/2010	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_mdv_53_2010.htm					
+142	MY	MY	Malaysia		YES	SUBMISSION	12/12/2019	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_mys_12_12_2019.html					
+143	GB	GA	Gabon		YES	SUBMISSION	10/04/2012	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_gab60_2012.htm	12/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/gab2009preliminaryinformation.pdf			
+144	KR	KI	Kiribati		YES	SUBMISSION	24/12/2012	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_kir_64_2012.htm					YES
+145	SN	SG	Singapore			NO ENTITLEMENT						YES		
+146	ID	ID	Indonesia		YES	SUBMISSION	16/06/2008	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_idn.htm					
+147	HQ	UM	Howland Island	US		NONE								
+148	TP	ST	Sao Tome & Principe			NONE				13/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/stp2009_preliminary%20info.pdf			
+149	BR	BR	Brazil		YES	SUBMISSION	7/12/2018	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_bra.htm					
+150	FQ	UM	Baker Island	US		NONE								
+151	PE	PE	Peru			NO ENTITLEMENT						YES		
+153	NR	NR	Nauru			NO ENTITLEMENT						YES		
+154	EC	EC	Ecuador			NONE	1/03/2022	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_ecu_90_2022.htm	20/09/2021	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/Ecuador_preliminaryinformation_20sep2021.pdf			YES
+155	SE	SC	Seychelles		YES	SUBMISSION	7/05/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_syc_39_2009.htm	8/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/syc2009preliminaryinfo.pdf			
+156	TZ	TZ	Tanzania		YES	SUBMISSION	18/01/2012	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_tza59_2012.htm	7/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/tza_2009_preliminaryinfo.pdf			
+157	AO	AO	Angola		YES	SUBMISSION	6/12/2013	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_ago_69_2013.htm	12/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/ago2009preliminaryinformation.pdf			
+158	IO	IO	British Indian Ocean Territory	UK		NONE								
+159	TV	TV	Tuvalu		YES	SUBMISSION	7/12/2012	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_tft_62_2012.htm					
+160	PP	PG	Papua New Guinea		YES	SUBMISSION	5/05/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_fmpgsb_32_2009.htm	5/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/png_preliminaryinfo.pdf			
+161	TL	TK	Tokelau	NZ	YES	SUBMISSION	7/12/2012	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_tft_62_2012.htm	11/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/nzl2009tokelau_preliminary_information.pdf			
+162	TT	TL	East Timor			NONE								YES
+163	BP	SB	Solomon Islands		YES	SUBMISSION	5/05/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_fmpgsb_32_2009.htm	5/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/slb_preliminaryinfo.pdf			
+164	KT	CX	Christmas Island	AS		NONE								
+165	MZ	MZ	Mozambique		YES	SUBMISSION	7/07/2010	Submission under active consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_moz_52_2010.htm	11/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/moz2009preliminaryinformation.pdf			
+166	CN	KM	Comoros			NONE				2/06/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/com2009preliminaryinformation.pdf			
+167	GO		Glorioso Islands	FR		NONE								
+168	MA	MG	Madagascar		YES	SUBMISSION	29/04/2011	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_mgd_56_2011.htm					
+169	CK	CC	Cocos Islands	AS		NONE								
+170	MF	YT	Mayotte	FR		NONE								
+171	WS	WS	Samoa			NO ENTITLEMENT						YES		
+172	WF	WF	Wallis & Futuna	FR	YES	SUBMISSION	7/12/2012	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_tft_62_2012.htm	YES				
+173	AQ	AS	American Samoa	US		NONE								
+174	SH	SH	Saint Helena	UK		NONE								
+175	WA	NA	Namibia		YES	SUBMISSION	12/05/2009	Submission under active consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_nam_50_2009.htm					
+176	JU		Juan De Nova Island	FR		NONE								
+177	FJ	FJ	Fiji		YES	SUBMISSION	20/04/2009	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_fji_24_2009.htm	21/04/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/fji_2009_preliminaryinfo.pdf			
+178	FP	PF	French Polynesia	FR		NONE	6/04/2018	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_fra_79_2018.htm					
+179	NE	NU	Niue			NO ENTITLEMENT						YES		
+180	NH	VU	Vanuatu		YES	SUBMISSION				10/08/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/vut_2009_revisedpreliminaryinfo.pdf			
+181	MP	MU	Mauritius		YES	SUBMISSION	6/05/2009	Submission under active consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_mus_36_2009.htm	6/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/mus_2009_preliminaryinfo.pdf			
+182	NC	NC	New Caledonia	FR	YES	SUBMISSION	22/05/2007	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_fra.htm					
+183	RE	RE	Reunion	FR	YES	SUBMISSION	8/05/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_fra_40_2009.htm					
+184	TN	TO	Tonga		YES	SUBMISSION	11/05/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_ton_46_2009.htm					
+185	CW	CK	Cook Islands		YES	SUBMISSION	16/04/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_cok_23_2009.htm					
+186	AR	AR	Argentina	AY FK	YES	SUBMISSION	21/04/2009	Submission with recommendations followed by deposit	https://www.un.org/depts/los/clcs_new/submissions_files/submission_arg_25_2009.htm					
+187	SF	ZA	South Africa		YES	SUBMISSION	5/05/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_zaf_31_2009.htm					
+188	PC	PN	Pitcairn Islands	UK		NONE								
+189	AS	AU	Australia	AY NF HM KT CK	YES	SUBMISSION	14/11/2004	Submission with recommendations followed by deposit	https://www.un.org/depts/los/clcs_new/submissions_files/submission_aus.htm					
+190	NF	NF	Norfolk Island	AS		NONE								
+191	UY	UY	Uruguay		YES	SUBMISSION	7/04/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_ury_21_2009.htm					
+192	NZ	NZ	New Zealand	TL AY	YES	SUBMISSION	19/04/2006	Submission with recommendations followed by deposit	https://www.un.org/depts/los/clcs_new/submissions_files/submission_nzl.htm					
+193	FS	TF	French Southern & Antarctic Lands	FR	YES	SUBMISSION	8/05/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_fra_40_2009.htm					
+194	FK	FK	Falkland Islands	UK AR		NONE	11/05/2009	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_gbr_45_2009.htm					
+195	HM	HM	Heard Island & McDonald Islands	AS		NONE								
+196	SX	GS	South Georgia & the South Sandwich Islands	UK		NONE	11/05/2009	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_gbr_45_2009.htm					
+197	BV	BV	Bouvet Island	NO	YES	SUBMISSION	4/05/2009	Submission with recommendations	https://www.un.org/depts/los/clcs_new/submissions_files/submission_nor_30_2009.htm					
+198	CI	CL	Chile	AY		NONE	21/12/2020	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_chl_87_2020.htm	8/05/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/chl2009preliminaryinformation.pdf			
+199	AY	AQ	Antarctica	UK NZ FR NO AS CI AR		NO ENTITLEMENT						YES		
+200	RO	RO	Romania			NO ENTITLEMENT						YES		
+201	IT	IT	Italy			NO ENTITLEMENT						YES		
+203	BK	BA	Bosnia & Herzegovina			NO ENTITLEMENT						YES		
+204	AL	AL	Albania			NO ENTITLEMENT						YES		
+205	MU	OM	Oman		YES	SUBMISSION	26/10/2017	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_omn_78_2017.htm	15/04/2009	https://www.un.org/depts/los/clcs_new/submissions_files/preliminary/omn_2009_preliminaryinfo.pdf			
+206	YM	YE	Yemen		YES	SUBMISSION	20/03/2009	Submission awaiting consideration	https://www.un.org/depts/los/clcs_new/submissions_files/submission_yem.htm					
+207	ER	ER	Eritrea			NO ENTITLEMENT						YES		
+208	SA	SA	Saudi Arabia			NO ENTITLEMENT						YES		
